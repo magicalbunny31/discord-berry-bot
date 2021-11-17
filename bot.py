@@ -1,5 +1,7 @@
 # https://docs.pycord.dev/en/master/api.html
 
+# cogs example https://github.com/Skullbite/owopup-v3
+
 # pycord installation!!
 # win: py -m pip install -U git+https://github.com/Pycord-Development/pycord
 # lin: pip install -U git+https://github.com/Pycord-Development/pycord
@@ -9,6 +11,7 @@ import random
 import datetime
 
 import json
+config = json.loads(open("./config.json", "r").read())
 emojis = json.loads(open("./emojis.json", "r").read())
 
 from textwrap import dedent
@@ -34,38 +37,41 @@ bot = discord.Bot(debug_guild=516701797411323915,
 # /help
 @bot.slash_command(name="help", description="help with berry bot 🍓")
 async def help(ctx):
-   developer = await bot.fetch_user(490178047325110282)
+   def name(command): return f"/{command.name}"
+   commands = "`\n`".join(list(map(name, bot.commands)))
+   
+   developer = await bot.fetch_user(config["developer"])
 
    embed = discord.Embed(
       colour = discord.Colour.from_rgb(15, 135, 240), # #0f87f0
       description = strip_indents(f"""
-         {bot.user.mention} : **Gentle Berry's Server**
+         {bot.user.mention} : **[Gentle Berry's Server]({config['invite']} "{config['invite']} 🔗")**
+
+         **commands** {emojis['yellow_book']}
+         `{commands}`
 
          `developer` › {developer.mention}
-         
+         `github` › [link]({config['github']} "{config['github']} 🔗")
       """)
    )
 
-   await ctx.respond(embeds=[embed], ephemeral=True)
+   return await ctx.respond(embeds=[embed], ephemeral=True)
 
 
 
 
 
-# /uwu
-@bot.slash_command(name="uwu", description="hehe murr")
-async def uwu(ctx):
-   await ctx.respond("uwu", ephemeral=True)
+# # /uwu
+# @bot.slash_command(name="uwu", description="hehe murr")
+# async def uwu(ctx):
+#    await ctx.respond("uwu", ephemeral=True)
 
 
 
 
 
 # /berry-joke
-@bot.slash_command(
-   name = "berry-joke",
-   description = "fresh berry jokes from jojo 💬"
-)
+@bot.slash_command(name = "berry-joke", description = "fresh berry jokes from jojo 💬")
 async def berry_joke(ctx):
    jokes = [
       [ "what do you call a sad strawberry?", "a blue berry 😔" ],
@@ -125,12 +131,14 @@ async def berry_joke(ctx):
 
 
 # /berry
-@bot.slash_command(
-   name = "berry",
-   description = "berry pictures 📷"
-)
+@bot.slash_command(name = "berry", description = "random berry picture 📷")
 async def berry(ctx):
-   print(ctx)
+   await ctx.defer(ephemeral=True)
+
+   berry_picture = random.choice(os.listdir("./assets/berries"))
+   attachment = discord.File(filename=f"berry.{berry_picture.split('.')[1]}", fp=f"./assets/berries/{berry_picture}")
+
+   return await ctx.interaction.edit_original_message(files=[attachment])
 
 
 
