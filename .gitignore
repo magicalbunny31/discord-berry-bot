@@ -2,6 +2,9 @@
 .vscode/
 *.code-workspace
 
+# » cache 📁
+**/__pycache__
+
 # » .env 📜
 .env
 
