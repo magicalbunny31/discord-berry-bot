@@ -20,7 +20,7 @@ load_dotenv()
 
 # the bot
 bot = discord.Bot(
-   debug_guild = 912111287838834738,
+   # debug_guild = 859172731386986516,
    activity = discord.Activity(
       name = "berry berry berry 🍓",
       type = discord.ActivityType.watching

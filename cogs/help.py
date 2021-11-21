@@ -18,7 +18,7 @@ class help(commands.Cog):
    @commands.slash_command(name="help", description="› help with berry bot 🍓")
    async def help(self, ctx):
       def replace_emoji(match): return f"\\{match.group()}" 
-      def name(command): print(command.description); return f"› `/{command.name}` - {emoji.get_emoji_regexp().sub(replace_emoji, command.description)}"
+      def name(command): return f"› `/{command.name}` - {emoji.get_emoji_regexp().sub(replace_emoji, command.description)}"
       commands = "\n".join(list(map(name, self.bot.commands)))
 
       developer = await self.bot.fetch_user(config["developer"])
