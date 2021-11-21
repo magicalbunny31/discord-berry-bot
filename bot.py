@@ -14,6 +14,7 @@
 # mac: why would i use that lmao
 
 import discord, os
+from discord.flags import Intents
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -25,7 +26,14 @@ bot = discord.Bot(
       name = "berry berry berry 🍓",
       type = discord.ActivityType.watching
    ),
-   status = discord.Status.idle
+   status = discord.Status.idle,
+   intents = discord.Intents( # https://discord.com/developers/docs/topics/gateway#list-of-intents
+      guilds = True,
+      members = True,
+      bans = True,
+      messages = True,
+      dm_messages = True
+   )
 )
 
 
