@@ -66,7 +66,6 @@ class berry_joke(commands.Cog):
 
          async def on_timeout(self):
             if not self.pressed:
-               print("hewwo")
                self.children[0].disabled = True
                await ctx.interaction.edit_original_message(view=self)
 
