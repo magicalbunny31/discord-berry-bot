@@ -19,7 +19,7 @@ class say(commands.Cog):
 
       await ctx.defer(ephemeral=True)
 
-      await channel.send(content=content)
+      await channel.send(content=content, allowed_mentions=discord.AllowedMentions(users=False))
 
       return await ctx.interaction.edit_original_message(content=f"sent message in {channel.mention}!")
       

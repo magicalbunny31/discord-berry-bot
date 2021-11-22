@@ -1,4 +1,4 @@
-import random, re
+import discord, random, re
 from discord.ext import commands
 from discord.commands import Option
 
@@ -102,7 +102,7 @@ class owo(commands.Cog):
       if len(owo) > 2000:
          return await ctx.respond(content="the message is too long to translate! try making it shorter", ephemeral=True)
 
-      return await ctx.respond(content=owo)
+      return await ctx.respond(content=owo, allowed_mentions=discord.AllowedMentions(users=False))
 
 
 def setup(bot):
