@@ -18,8 +18,7 @@ import discord, os
 from dotenv import load_dotenv
 load_dotenv()
 
-from textwrap import dedent
-def strip_indents(text): return dedent(text).strip()
+from assets.data.strip_indents import strip_indents
 
 # the bot
 bot = discord.Bot(
