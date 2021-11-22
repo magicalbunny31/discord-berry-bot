@@ -42,7 +42,7 @@ class berry_joke(commands.Cog):
 
       class View(discord.ui.View):
          def __init__(self):
-            super().__init__(timeout=10) # 120
+            super().__init__(timeout=120)
             self.pressed = False
 
          @discord.ui.button(style=discord.ButtonStyle.primary, custom_id=f"{ctx.interaction.id}:why", label=f"{joke[0].split()[0]}?", emoji=discord.PartialEmoji.from_str(emojis["speech_bubble_left"]))
