@@ -2,6 +2,8 @@ import random, re
 from discord.ext import commands
 from discord.commands import Option
 
+from assets.data.bad_words import bad_words
+
 
 class owo(commands.Cog):
    def __init__(self, bot):
@@ -32,13 +34,17 @@ class owo(commands.Cog):
       # ?        => owo
       # ome      => um
 
+
+      if any(word in text for word in bad_words()):
+         return await ctx.respond(content="i can't translate \\*that\\*; your content contains bad words!", ephemeral=True)
+
       
-      split_spaces = re.split("\s", text)
+      split_spaces = re.split(r"\s", text, flags=re.M|re.I)
       texts = []
 
       for text in split_spaces:
-         split_regex = re.split("!|\?", text)
-         for t in split_regex: texts.append(t)
+         split_regex = re.split(r"(!|\?)", text, flags=re.M|re.I)
+         for t in filter(None, split_regex): texts.append(t)
 
       
       translated = []
@@ -46,42 +52,42 @@ class owo(commands.Cog):
       for text in texts:
          t = text
 
-         t = re.sub("\byou", "chu", t)
+         t = re.sub("you", "chu", t, flags=re.M|re.I)
 
-         t = re.sub("\byes", "yus", t)
+         t = re.sub("yes", "yus", t, flags=re.M|re.I)
 
-         t = re.sub("\bno", "nu", t)
+         t = re.sub("no", "nu", t, flags=re.M|re.I)
 
          def ny(match): return f"{match.group()[0:1]}y{match.group()[1:2]}"
-         t = re.sub("n[aeiou]", ny, t)
+         t = re.sub("n[aeiou]", ny, t, flags=re.M|re.I)
 
-         t = re.sub("\bhi", "hai", t)
+         t = re.sub("hi", "hai", t, flags=re.M|re.I)
 
-         t = re.sub("\bhowdy", "meowdy", t)
+         t = re.sub("howdy", "meowdy", t, flags=re.M|re.I)
 
-         t = re.sub("\bcool", "kewl", t)
+         t = re.sub("cool", "kewl", t, flags=re.M|re.I)
 
-         t = re.sub("\bfor", "fur", t)
+         t = re.sub("for", "fur", t, flags=re.M|re.I)
 
-         t = re.sub("\bvery", "ver", t)
+         t = re.sub("very", "ver", t, flags=re.M|re.I)
 
-         t = re.sub("\bgood", "gud", t)
+         t = re.sub("good", "gud", t, flags=re.M|re.I)
 
-         t = re.sub("\bcheese", "sergal", t)
+         t = re.sub("cheese", "sergal", t, flags=re.M|re.I)
 
-         t = re.sub("[rl]", "w", t)
+         t = re.sub("[rl]", "w", t, flags=re.M|re.I)
 
-         t = re.sub("ove", "uv", t)
+         t = re.sub("ove", "uv", t, flags=re.M|re.I)
 
-         t = re.sub("th", "d", t)
+         t = re.sub("th", "d", t, flags=re.M|re.I)
 
-         t = re.sub("pos", "paws", t)
+         t = re.sub("pos", "paws", t, flags=re.M|re.I)
 
-         t = re.sub("!", random.choice([":3", ";3", "èwé", "uwu"]), t)
+         t = re.sub("!", random.choice([":3", ";3", "èwé", "uwu"]), t, flags=re.M|re.I)
 
-         t = re.sub("\?", "owo", t)
+         t = re.sub("\?", "owo", t, flags=re.M|re.I)
 
-         t = re.sub("ome", "um", t)
+         t = re.sub("ome", "um", t, flags=re.M|re.I)
 
          translated.append(t.strip())
 
@@ -89,6 +95,9 @@ class owo(commands.Cog):
 
 
       owo = " ".join(translated)
+
+      if any(word in owo for word in bad_words()):
+         return await ctx.respond(content="unfortunately, the translated content contains bad words so i won't send it", ephemeral=True)
 
       if len(owo) > 2000:
          return await ctx.respond(content="the message is too long to translate! try making it shorter", ephemeral=True)
