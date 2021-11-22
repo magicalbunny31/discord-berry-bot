@@ -5,8 +5,7 @@ import json
 config = json.loads(open("./config.json", "r").read())
 emojis = json.loads(open("./assets/data/emojis.json", "r").read())
 
-from textwrap import dedent
-def strip_indents(text): return dedent(text).strip()
+from assets.data.strip_indents import strip_indents
 
 
 
