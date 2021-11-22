@@ -39,12 +39,16 @@ class tic_tac_toe(commands.Cog):
             state = view.board[self.y][self.x]
             if state in (view.x, view.o): return
 
+            if interaction.user.id != user_x.id or interaction.user.id != user_o.id:
+               return await interaction.response.send_message(
+                  content = "hey! you're not even a part of this game!",
+                  ephemeral = True
+               )
+
             if view.turn == view.x:
                if interaction.user.id == user_o.id:
                   return await interaction.response.send_message(
-                     content = strip_indents(f"""
-                        hey! it's not your turn yet!
-                     """),
+                     content = "hey! it's not your turn yet!",
                      ephemeral = True
                   )
 
@@ -63,9 +67,7 @@ class tic_tac_toe(commands.Cog):
             else:
                if interaction.user.id == user_x.id:
                   return await interaction.response.send_message(
-                     content = strip_indents(f"""
-                        hey! it's not your turn yet!
-                     """),
+                     content = "hey! it's not your turn yet!",
                      ephemeral = True
                   )
 
