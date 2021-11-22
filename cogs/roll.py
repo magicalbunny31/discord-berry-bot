@@ -3,7 +3,7 @@ from discord.ext import commands
 from discord.commands import Option
 
 import json
-emojis = json.loads(open("./emojis.json", "r").read())
+emojis = json.loads(open("./assets/data/emojis.json", "r").read())
 
 
 class roll(commands.Cog):

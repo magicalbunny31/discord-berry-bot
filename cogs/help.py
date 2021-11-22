@@ -3,7 +3,7 @@ from discord.ext import commands
 
 import json
 config = json.loads(open("./config.json", "r").read())
-emojis = json.loads(open("./emojis.json", "r").read())
+emojis = json.loads(open("./assets/data/emojis.json", "r").read())
 
 from textwrap import dedent
 def strip_indents(text): return dedent(text).strip()
