@@ -39,7 +39,7 @@ class tic_tac_toe(commands.Cog):
             state = view.board[self.y][self.x]
             if state in (view.x, view.o): return
 
-            if interaction.user.id != user_x.id or interaction.user.id != user_o.id:
+            if interaction.user.id != user_x.id and interaction.user.id != user_o.id:
                return await interaction.response.send_message(
                   content = "hey! you're not even a part of this game!",
                   ephemeral = True
