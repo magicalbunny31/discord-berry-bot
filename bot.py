@@ -14,10 +14,11 @@
 # mac: why would i use that lmao
 
 import discord, os
-from discord.flags import Intents
 
 from dotenv import load_dotenv
 load_dotenv()
+
+from assets.data.strip_indents import strip_indents
 
 # the bot
 bot = discord.Bot(
@@ -43,9 +44,19 @@ async def on_ready():
    print("🦊")
 
 
-# creating aotd threads
+# bot was mentioned / creating aotd threads
 @bot.event
 async def on_message(message):
+   if message.content == f"<@!{bot.user.id}>" or message.content == f"<@{bot.user.id}>":
+      return await message.reply(
+         content = strip_indents(f"""
+            hello, {message.author.mention}! \\👋
+            to view my commands, use the command `/help` 🫐
+         """),
+         allowed_mentions = discord.AllowedMentions(users=False, replied_user=False)
+      )
+   
+
    if message.channel.id != 612405735778942988: return # ❓qotd❔ (612405735778942988)
    await message.create_thread(name="❕aotd❗")
 

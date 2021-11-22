@@ -2,10 +2,9 @@ import discord, random
 from discord.ext import commands
 
 import json
-emojis = json.loads(open("./emojis.json", "r").read())
+emojis = json.loads(open("./assets/data/emojis.json", "r").read())
 
-from textwrap import dedent
-def strip_indents(text): return dedent(text).strip()
+from assets.data.strip_indents import strip_indents
 
 
 class berry_joke(commands.Cog):
@@ -32,7 +31,7 @@ class berry_joke(commands.Cog):
          [ "what do you call a magic berry?", "cherry potter! 🍒" ],
          [ "why did the strawberry stop in the middle of the road?", "because it ran out of juice! 🥤" ],
          [ "what is a scarecrow's favourite fruit?", "straw-berries! 🦅" ],
-         [ "what's red, made of strawberries, and sucks your blood?", "a jam-pire! 🦇" ],
+         [ "what is red, made of strawberries, and sucks your blood?", "a jam-pire! 🦇" ],
          [ "what do you do to a dead berry?", "you \\*berry\\* it ⚰️" ],
          [ "what is it called when a raspberry is late to class?", "they're tarty! 🥧" ],
          [ "what did the blueberry pie say to the pecan pie?", "\"you're nuts!\" 🥜" ],
@@ -46,10 +45,10 @@ class berry_joke(commands.Cog):
             super().__init__(timeout=120)
             self.pressed = False
 
-         @discord.ui.button(style=discord.ButtonStyle.primary, custom_id=f"{ctx.interaction.id}:why", label="why?", emoji=discord.PartialEmoji.from_str(emojis["speech_bubble_left"]))
+         @discord.ui.button(style=discord.ButtonStyle.primary, custom_id=f"{ctx.interaction.id}:why", label=f"{joke[0].split()[0]}?", emoji=discord.PartialEmoji.from_str(emojis["speech_bubble_left"]))
          async def button(self, button: discord.Button, interaction: discord.Interaction):
             if interaction.user.id != ctx.user.id:
-               return await interaction.followup(
+               return await interaction.response.send_message(
                   content = strip_indents(f"""
                      since {ctx.user.mention} used this command, only they can reveal the answer!
                      prefer to press the button? use the command `/berry-joke`
