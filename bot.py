@@ -22,7 +22,7 @@ from assets.data.strip_indents import strip_indents
 
 # the bot
 bot = discord.Bot(
-   debug_guild = 859172731386986516,
+   # debug_guild = 859172731386986516,
    activity = discord.Activity(
       name = "berry berry berry 🍓",
       type = discord.ActivityType.watching
@@ -76,5 +76,5 @@ for file in os.listdir("./cogs"):
 
 
 # run the bot
-token = os.getenv("TOKEN_DEV")
+token = os.getenv("TOKEN")
 bot.run(token)

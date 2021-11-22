@@ -176,8 +176,7 @@ class tic_tac_toe(commands.Cog):
             {user_x.mention} (`x`) vs {user_o.mention} (`o`)
             > {user_x.mention if first_player == -1 else user_o.mention}'s turn
          """),
-         view = View(),
-         allowed_mentions = discord.AllowedMentions.none()
+         view = View()
       )
 
 
