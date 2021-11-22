@@ -51,7 +51,7 @@ async def on_message(message):
       return await message.reply(
          content = strip_indents(f"""
             hello, {message.author.mention}! \\👋
-            to view my commands, use the command `/help` \\🍓
+            to view my commands, use the command `/help` 🫐
          """),
          allowed_mentions = discord.AllowedMentions(users=False, replied_user=False)
       )
