@@ -53,7 +53,6 @@ async def on_message(message):
 # auto-join threads because awesome
 @bot.event
 async def on_thread_join(thread):
-   print(thread)
    await thread.join()
 
 
