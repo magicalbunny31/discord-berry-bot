@@ -6,6 +6,10 @@ pycord
 win: py -m pip install -U git+https://github.com/Pycord-Development/pycord
 lin: pip install -U git+https://github.com/Pycord-Development/pycord
 
+dotenv
+win: py -m pip install -U dotenv
+lin: pip install -U dotenv
+
 emoji
 win: py -m pip install -U emoji
 lin: pip install -U emoji
