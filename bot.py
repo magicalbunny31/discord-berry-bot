@@ -78,7 +78,3 @@ for file in os.listdir("./cogs"):
 # run the bot
 token = os.getenv("TOKEN_DEV")
 bot.run(token)
-
-
-
-# todo /help has indents on mobile
