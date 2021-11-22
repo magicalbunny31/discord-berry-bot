@@ -102,7 +102,7 @@ class owo(commands.Cog):
       if len(owo) > 2000:
          return await ctx.respond(content="the message is too long to translate! try making it shorter", ephemeral=True)
 
-      return await ctx.respond(content=owo, allowed_mentions=discord.AllowedMentions(users=False))
+      return await ctx.respond(content=owo, allowed_mentions=discord.AllowedMentions.none())
 
 
 def setup(bot):

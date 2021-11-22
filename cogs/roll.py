@@ -19,7 +19,7 @@ class roll(commands.Cog):
       if rolled == 1:
          return await ctx.respond(content=f"oof, you rolled **{rolled}** {emoji}")
       elif rolled == sides:
-         return await ctx.respond(content=f"congratulations, {ctx.user.mention}! you rolled **{rolled}** {emoji}", allowed_mentions=discord.AllowedMentions(users=False))
+         return await ctx.respond(content=f"congratulations, {ctx.user.mention}! you rolled **{rolled}** {emoji}", allowed_mentions=discord.AllowedMentions.none())
       else:
          return await ctx.respond(content=f"you rolled **{rolled}** {emoji}")
 
