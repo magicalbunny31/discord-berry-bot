@@ -37,6 +37,26 @@ bot = discord.Bot(
 )
 
 
+# the bot is ready
+@bot.event
+async def on_ready():
+   print("🦊")
+
+
+# creating aotd threads
+@bot.event
+async def on_message(message):
+   if message.channel.id != 612405735778942988: return # ❓qotd❔ (612405735778942988)
+   await message.create_thread(name="❕aotd❗")
+
+
+# auto-join threads because awesome
+@bot.event
+async def on_thread_join(thread):
+   print(thread)
+   await thread.join()
+
+
 # load cogs
 for file in os.listdir("./cogs"):
    if not file.endswith(".py"): continue
@@ -46,7 +66,5 @@ for file in os.listdir("./cogs"):
 
 
 # run the bot
-print("🦊")
-
 token = os.getenv("TOKEN")
 bot.run(token)
