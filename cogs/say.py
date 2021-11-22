@@ -1,7 +1,6 @@
 import discord
 from discord.ext import commands
-from discord.commands import Option
-from discord.commands import permissions
+from discord.commands import Option, permissions
 
 
 class say(commands.Cog):
