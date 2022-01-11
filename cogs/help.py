@@ -35,8 +35,6 @@ class help(commands.Cog):
          """)
       )
 
-      print(embed.description)
-
       return await ctx.respond(embeds=[embed])
 
 
