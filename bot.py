@@ -70,7 +70,7 @@ async def on_thread_join(thread):
 # load cogs
 for file in os.listdir("./cogs"):
    if not file.endswith(".py"): continue
-   if not bot.debug_guild and file == "uwu.py": continue # if this isn't in debug, don't use the test command
+   if not bot.debug_guilds and file == "uwu.py": continue # if this isn't in debug, don't use the test command
 
    bot.load_extension(f"cogs.{file[0:-3]}")
 
