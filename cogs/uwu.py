@@ -8,7 +8,8 @@ class uwu(commands.Cog):
 
    @commands.slash_command(name="uwu", description="› hehe murr")
    async def uwu(self, ctx):
-      return await ctx.respond("uwu", ephemeral=True)
+      return await ctx.respond(content="uwu", ephemeral=True)
+
 
 
 def setup(bot):
