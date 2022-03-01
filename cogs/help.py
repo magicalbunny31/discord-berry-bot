@@ -14,7 +14,7 @@ class help(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="help", description="› help with berry bot 🍓")
+   @commands.slash_command(name="help", description="help with berry bot 🫐")
    async def help(self, ctx):
       def replace_emoji(match): return f"\\{match.group()}" 
       def name(command): return f"› `/{command.name}` - {emoji.get_emoji_regexp().sub(replace_emoji, command.description)}"

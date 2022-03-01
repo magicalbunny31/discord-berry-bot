@@ -7,7 +7,7 @@ class berry(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="berry", description="› random berry picture 📷")
+   @commands.slash_command(name="berry", description="random berry picture 📷")
    async def berry(self, ctx):
       await ctx.defer()
 

@@ -6,7 +6,7 @@ class uwu(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="uwu", description="› hehe murr")
+   @commands.slash_command(name="uwu", description="hehe murr")
    async def uwu(self, ctx):
       return await ctx.respond(content="uwu", ephemeral=True)
 

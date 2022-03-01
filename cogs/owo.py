@@ -10,8 +10,8 @@ class owo(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="owo", description="› owo-fy some text 💬")
-   async def owo(self, ctx, text: Option(str, "› text to owo-fy 📝")):
+   @commands.slash_command(name="owo", description="owo some text 💬")
+   async def owo(self, ctx, text: Option(str, "text to owo 📝")):
       # rules defined from bun 🐰🐾 (my main bot)'s own owo command (excluding swears)
       # ..this is also pretty much copied code from bun 🐰🐾 lmao
 

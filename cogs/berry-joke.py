@@ -12,7 +12,7 @@ class berry_joke(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="berry-joke", description="› fresh berry jokes from jojo 💬")
+   @commands.slash_command(name="berry-joke", description="fresh berry jokes from jojo 💬")
    async def berry_joke(self, ctx):
       jokes = [
          [ "what do you call a sad strawberry?", "a blue berry 😔" ],

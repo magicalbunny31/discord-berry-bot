@@ -10,8 +10,8 @@ class tic_tac_toe(commands.Cog):
       self.bot = bot
 
 
-   @commands.slash_command(name="tic-tac-toe", description="› play tic-tac-toe with another user! 🎮")
-   async def tic_tac_toe(self, ctx, user: Option(discord.User, "› user to play against 👥")):
+   @commands.slash_command(name="tic-tac-toe", description="play tic-tac-toe with another user! 🎮")
+   async def tic_tac_toe(self, ctx, user: Option(discord.User, "user to play against 👥")):
       user_x = ctx.author
       user_o = user
 
