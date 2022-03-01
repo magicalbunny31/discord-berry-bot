@@ -22,7 +22,7 @@ from assets.data.strip_indents import strip_indents
 
 # the bot
 bot = discord.Bot(
-   # debug_guild = 859172731386986516,
+   debug_guilds = [719616264934522940],
    activity = discord.Activity(
       name = "berry berry berry 🍓",
       type = discord.ActivityType.watching
