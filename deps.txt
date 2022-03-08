@@ -3,13 +3,13 @@ list of dependencies
 
 
 pycord
-win: py -m pip install -U git+https://github.com/Pycord-Development/pycord
-lin: pip install -U git+https://github.com/Pycord-Development/pycord
+win: py -m pip install py-cord==2.0.0b5
+lin: pip install py-cord==2.0.0b5
 
 dotenv
-win: py -m pip install -U python-dotenv
-lin: pip install -U python-dotenv
+win: py -m pip install python-dotenv
+lin: pip install python-dotenv
 
 emoji
-win: py -m pip install -U emoji
-lin: pip install -U emoji
+win: py -m pip install emoji
+lin: pip install emoji
