@@ -5,6 +5,9 @@
 # » cache 📁
 **/__pycache__
 
+# » databases 📦
+**/database/
+
 # » .env 📜
 .env
 
