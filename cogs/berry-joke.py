@@ -35,7 +35,9 @@ class berry_joke(commands.Cog):
          [ "what do you do to a dead berry?", "you \\*berry\\* it ⚰️" ],
          [ "what is it called when a raspberry is late to class?", "they're tarty! 🥧" ],
          [ "what did the blueberry pie say to the pecan pie?", "\"you're nuts!\" 🥜" ],
-         [ "why did the blueberry go out with the fig?", "because it couldn't find a date.. 💘" ]
+         [ "why did the blueberry go out with the fig?", "because it couldn't find a date.. 💘" ],
+         [ "where do strawberries play their saxophones? 🎷", "at jam sessions! 🍓" ],
+         [ "how do you make a blueberry? 🫐", "you strangle a pea! 🖐️" ]
       ]
       joke = random.choice(jokes)
 
