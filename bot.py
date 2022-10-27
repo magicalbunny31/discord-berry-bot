@@ -24,7 +24,7 @@ from assets.data.strip_indents import strip_indents
 bot = discord.Bot(
    # debug_guilds = [719616264934522940],
    activity = discord.Activity(
-      name = "berry berry berry 🫐",
+      name = "Gentle Berry's Server 2018-2022 🕯️🫐",
       type = discord.ActivityType.watching
    ),
    status = discord.Status.idle,
